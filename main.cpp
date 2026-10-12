@@ -1,8 +1,9 @@
-#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
 
 struct Node {
     int data;
-    Node* next;
+    struct Node* next;
     
     Node(int value) {
         data = value;
@@ -12,13 +13,13 @@ struct Node {
 
 int main() {
     int n, m;
-    std::cin >> n >> m;
+    scanf("%d %d", &n, &m);
     
-    Node* head = new Node(1);
-    Node* current = head;
+    struct Node* head = new Node(1);
+    struct Node* current = head;
     
     for (int i = 2; i <= n; i++) {
-        Node* newNode = new Node(i);
+        struct Node* newNode = new Node(i);
         current->next = newNode;
         current = newNode;
     }
@@ -26,7 +27,7 @@ int main() {
     current->next = head;
     
     current = head;
-    Node* prev = 0;
+    struct Node* prev = 0;
     
     while (current->next != head) {
         current = current->next;
@@ -42,14 +43,14 @@ int main() {
         
         prev->next = current->next;
         int value = current->data;
-        Node* temp = current;
+        struct Node* temp = current;
         current = current->next;
         delete temp;
         
-        std::cout << value << std::endl;
+        printf("%d\n", value);
     }
     
-    std::cout << current->data << std::endl;
+    printf("%d\n", current->data);
     
     delete current;
     
