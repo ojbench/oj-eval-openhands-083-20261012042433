@@ -1,15 +1,7 @@
-CXX = g++
-CXXFLAGS = -O2 -Wall -Wextra
-
-TARGET = code
-SOURCES = main.cpp
-
-all: $(TARGET)
-
-$(TARGET): $(SOURCES)
-	$(CXX) $(CXXFLAGS) $(SOURCES) -o $(TARGET)
+all:
+	g++ -O2 main.cpp -o code
 
 clean:
-	rm -f $(TARGET)
+	rm -f code
 
 .PHONY: all clean
